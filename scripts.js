@@ -10,11 +10,8 @@ const totalPool = 34;
 const pairsCount = 8;
 let hasFlipped = false;
 let lockBoard = false;
-let firstCard, secondCard;
-let matches = 0;
-let moves = 0;
+let firstCard, secondCard, matches, moves;
 
-// If an image fails to load, this prevents the game from breaking
 function handleImageError(img, id) {
     img.style.display = 'none';
     const parent = img.parentElement;
@@ -26,28 +23,23 @@ function handleImageError(img, id) {
 
 function initGame() {
     gameBoard.innerHTML = '';
-    matches = 0;
-    moves = 0;
+    matches = 0; moves = 0;
     document.getElementById('move-counter').innerText = '0';
     document.getElementById('win-modal').style.display = 'none';
     
     let images = [];
     for (let i = 1; i <= totalPool; i++) {
-        // CRITICAL: Skip 6 (Back) and 30 (Logo) so they aren't in the matching deck
+        // Skip image 6 (back) and 30 (logo) for card selection
         if (i === 6 || i === 30) continue; 
         
         let ext = '.jpg';
         if ([1, 31, 32, 33, 34].includes(i)) ext = '.jpeg';
         if ([3, 7, 8, 9, 29].includes(i)) ext = '.png';
-        
         images.push(`${i}${ext}`);
     }
 
-    // Shuffle and pick 8 random unique images
     images.sort(() => Math.random() - 0.5);
     let selection = images.slice(0, pairsCount);
-    
-    // Create the pairs (16 cards total)
     let deck = [...selection, ...selection].sort(() => Math.random() - 0.5);
 
     deck.forEach(name => {
@@ -96,8 +88,8 @@ function checkMatch() {
         lockBoard = true;
         sfx.mismatch.play().catch(() => {});
         setTimeout(() => {
-            if(firstCard) firstCard.classList.remove('flip');
-            if(secondCard) secondCard.classList.remove('flip');
+            firstCard.classList.remove('flip');
+            secondCard.classList.remove('flip');
             resetTurn();
         }, 1000);
     }
@@ -108,9 +100,7 @@ function resetTurn() {
     [firstCard, secondCard] = [null, null];
 }
 
-function resetGame() { 
-    initGame(); 
-}
+function resetGame() { initGame(); }
 
 function updateVolume(val) {
     bgMusic.volume = val;
@@ -124,7 +114,7 @@ function toggleMute() {
     document.getElementById('mute-btn').innerText = isMuted ? '🔇' : '🔊';
 }
 
-// Global Startup Sequence
+// Initial Countdown
 let timer = 5;
 const startCounter = setInterval(() => {
     timer--;
