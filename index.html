@@ -4,47 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La Cenicienta de Bucaramanga</title>
-  <link rel="stylesheet" href="style.css?v=2.3">
+  <link rel="stylesheet" href="style.css?v=3.0">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
   <div id="intro-overlay" class="overlay flex-column">
-    <img src="img/sgrlogo.png" alt="Salsa Guy Richmond Logo" id="intro-logo">
+    <img src="img/30.jpg" alt="La Cenicienta Logo" id="intro-logo">
     
     <div id="welcome-content" class="intro-box">
-      <h2 class="welcome-title">Welcome to Tradición Memory Match!</h2>
-      <p class="welcome-p">Prepare your mind to match the vibrant heritage of Puerto Rico and beyond.</p>
+      <h2 class="welcome-title">The Cinderella of Bucaramanga</h2>
+      <p class="welcome-p">A magical journey through memories and heritage.</p>
       <div class="promo-links">
-        <p>Dance Lessons available with the Salsa Guy: <br>
+        <p>Visit us at: <br>
         <a href="https://salsarichmond.com" target="_blank">salsarichmond.com</a></p>
-        <p>For performances, go to: <br>
-        <a href="https://tradicion.org" target="_blank">tradicion.org</a></p>
       </div>
     </div>
 
     <div id="instructions-content" class="intro-box" style="display: none;">
       <h2 class="orange-text">HOW TO PLAY</h2>
-      <div class="instr-item"><span>🎴</span> <b>FLIP:</b> Click any card to reveal a cultural icon.</div>
-      <div class="instr-item"><span>✨</span> <b>MATCH:</b> Find two of the same to clear them.</div>
-      <div class="instr-item"><span>🏆</span> <b>WIN:</b> Match all 12 pairs for the celebration!</div>
-      <div class="instr-item"><span>⏱️</span> <b>SCORE:</b> Faster moves earn higher points.</div>
+      <div class="instr-item"><span>🎴</span> <b>FLIP:</b> Click a card to reveal a memory.</div>
+      <div class="instr-item"><span>✨</span> <b>MATCH:</b> Find the pair to clear the board.</div>
+      <div class="instr-item"><span>🏆</span> <b>WIN:</b> Complete the 4x4 grid to celebrate!</div>
     </div>
 
     <div id="countdown-display">
-      Game starting in: <br>
-      <b id="count-num">6</b>
+      Preparing the magic in: <br>
+      <b id="count-num">5</b>
     </div>
   </div>
 
   <div class="game-header">
-    <h1>Tradición Memory Match</h1>
+    <h1>The Cinderella of Bucaramanga</h1>
     <div class="stats-container">
       <span>Time: <b id="timer">00:00</b></span>
       <span>Moves: <b id="move-counter">0</b></span>
       <span>Score: <b id="score-display">1000</b></span>
-      <button class="btn-orange" onclick="toggleAudioSettings()">Audio Settings</button>
-      <button class="btn-orange" onclick="resetGame()">Reset Game</button>
+      <button class="btn-orange" onclick="resetGame()">New Game</button>
     </div>
   </div>
 
@@ -53,39 +49,13 @@
       <h2>¡Felicidades!</h2>
       <p id="final-stats-text"></p>
       <h1 id="final-score-big">0</h1>
-      <div class="promo-links-dark">
-        <a href="https://salsarichmond.com" target="_blank">salsarichmond.com</a> | <a href="https://tradicion.org" target="_blank">tradicion.org</a>
-      </div>
+      <p>You've mastered the memories of Bucaramanga.</p>
       <button class="btn-orange" onclick="resetGame()">Play Again</button>
     </div>
   </div>
 
   <section class="memory-game" id="game-board">
-    <div class="memory-card" data-framework="bomba"><img class="front-face" src="img/bomba.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="bomba"><img class="front-face" src="img/bomba.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="azul"><img class="front-face" src="img/Azul Transparent.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="azul"><img class="front-face" src="img/Azul Transparent.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="musician"><img class="front-face" src="img/bomba-musician.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="musician"><img class="front-face" src="img/bomba-musician.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="edna"><img class="front-face" src="img/cabezudos-edna-gabriel.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="edna"><img class="front-face" src="img/cabezudos-edna-gabriel.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="cano"><img class="front-face" src="img/cano-barracuda.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="cano"><img class="front-face" src="img/cano-barracuda.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="comalera"><img class="front-face" src="img/comalera.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="comalera"><img class="front-face" src="img/comalera.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="mapale"><img class="front-face" src="img/mapale.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="mapale"><img class="front-face" src="img/mapale.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="viejito"><img class="front-face" src="img/viejito.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="viejito"><img class="front-face" src="img/viejito.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="salsaguy"><img class="front-face" src="img/salsa-guy.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="salsaguy"><img class="front-face" src="img/salsa-guy.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="mex"><img class="front-face" src="img/mex.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="mex"><img class="front-face" src="img/mex.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="tango"><img class="front-face" src="img/tango.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="tango"><img class="front-face" src="img/tango.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="barril"><img class="front-face" src="img/barril.png"><div class="back-face"></div></div>
-    <div class="memory-card" data-framework="barril"><img class="front-face" src="img/barril.png"><div class="back-face"></div></div>
-  </section>
+    </section>
 
   <audio id="bg-music" src="audio/bg-music.mp3" loop></audio>
   <audio id="sound-flip" src="audio/flip.mp3"></audio>
