@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La Cenicienta de Bucaramanga</title>
-  <link rel="stylesheet" href="style.css?v=3.2">
+  <link rel="stylesheet" href="style.css?v=4.0">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
@@ -16,12 +16,12 @@
       <h2 class="welcome-title">The Cinderella of Bucaramanga</h2>
       <p class="welcome-p">A magical journey through heritage and dance.</p>
       <div class="promo-links">
-        <p>Learn more at: <a href="https://salsarichmond.com" target="_blank">salsarichmond.com</a></p>
+        <p>Visit us: <a href="https://salsarichmond.com" target="_blank">salsarichmond.com</a></p>
       </div>
     </div>
 
     <div id="countdown-display">
-      Preparing the magic in: <br>
+      Game starting in: <br>
       <b id="count-num">5</b>
     </div>
   </div>
@@ -31,21 +31,21 @@
     <div class="stats-container">
       <span>Time: <b id="timer">00:00</b></span>
       <span>Moves: <b id="move-counter">0</b></span>
-      <button class="btn-orange" onclick="location.reload()">New Game</button>
+      <button class="btn-orange" onclick="location.reload()">Reset Game</button>
     </div>
   </div>
 
   <div id="win-modal" class="overlay" style="display: none;">
     <div class="message-content win-card">
       <h2>¡Felicidades!</h2>
-      <p>The memories are complete.</p>
+      <p>The memories of Mi Sol are complete.</p>
       <button class="btn-orange" onclick="location.reload()">Play Again</button>
     </div>
   </div>
 
   <section class="memory-game" id="game-board"></section>
 
-  <audio id="bg-music" src="audio/bg_music.mp3" loop></audio>
+  <audio id="bg-music" src="audio/bg-music.mp3" loop></audio>
   <audio id="sound-flip" src="audio/flip.mp3"></audio>
   <audio id="sound-match" src="audio/match.mp3"></audio>
   <audio id="sound-mismatch" src="audio/mismatch.mp3"></audio>
