@@ -6,7 +6,7 @@ const sfx = {
     mismatch: document.getElementById('sound-mismatch')
 };
 
-const totalPool = 35; 
+const totalPool = 40; // Increased to match new file list
 const pairsCount = 8;
 let hasFlipped = false;
 let lockBoard = false;
@@ -22,8 +22,10 @@ function initGame() {
     const version = new Date().getTime(); 
 
     for (let i = 1; i <= totalPool; i++) {
-        // Skip 6 (Back) and 30 (Logo)
+        // Skip 6 (Back) and 30 (Logo) for the card pool
         if (i === 6 || i === 30) continue; 
+        
+        // Treat all as .png, including 35 and 40
         images.push(`${i}.png?v=${version}`);
     }
 
@@ -102,21 +104,16 @@ function toggleMute() {
     document.getElementById('mute-btn').innerText = isMuted ? '🔇' : '🔊';
 }
 
-// FIX: Improved Startup Sequence
+// Global Startup sequence
 let timer = 5;
-const countNum = document.getElementById('count-num');
-const introOverlay = document.getElementById('intro-overlay');
-
+const countDisplay = document.getElementById('count-num');
 const startCounter = setInterval(() => {
     timer--;
-    if (countNum) countNum.innerText = timer;
-    
-    if (timer <= 0) {
+    if (countDisplay) countDisplay.innerText = timer;
+    if (timer === 0) {
         clearInterval(startCounter);
-        if (introOverlay) introOverlay.style.display = 'none';
-        bgMusic.play().catch(() => {
-            console.log("Audio waiting for user interaction");
-        });
+        document.getElementById('intro-overlay').style.display = 'none';
+        bgMusic.play().catch(() => {});
         initGame();
     }
 }, 1000);
