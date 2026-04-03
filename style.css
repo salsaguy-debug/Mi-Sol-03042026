@@ -24,7 +24,7 @@ body {
   padding: 8px 15px; border-radius: 20px; border: 1px solid var(--orange);
 }
 
-.best-score { border-color: #ffd700; color: #ffd700; } /* Golden border for high score */
+.best-score { border-color: #ffd700; color: #ffd700; }
 
 .overlay {
   position: fixed; inset: 0; background: rgba(0,0,0,0.85);
@@ -56,7 +56,12 @@ input[type=range] { width: 100%; cursor: pointer; accent-color: #2196F3; }
   backface-visibility: hidden; border-radius: 10px; border: 2px solid var(--orange);
 }
 
-.back-face { background: #222 url('img/3.png') no-repeat center center; background-size: cover; }
+/* Card Back set to 3.png */
+.back-face { 
+  background: #222 url('img/3.png') no-repeat center center; 
+  background-size: cover; 
+}
+
 .front-face { background: white; transform: rotateY(180deg); }
 
 .btn-orange {
