@@ -21,7 +21,7 @@ body {
 .back-face { background: #222 url('img/3.png') no-repeat center center; background-size: cover; }
 .front-face { background: white; transform: rotateY(180deg); }
 
-/* Shake animation fixed for 3D flipped cards */
+/* Shake effect for mismatches */
 @keyframes shake {
     0% { margin-left: 0; }
     25% { margin-left: -10px; }
