@@ -20,6 +20,7 @@
         <p>🏆 <b>WIN:</b> Complete the full grid to celebrate!</p>
       </div>
       <p>Preparing the magic in: <b id="count-num">5</b></p>
+      <p style="font-size: 0.8rem; color: #aaa;">(Click anywhere to enable sound)</p>
     </div>
   </div>
 
@@ -37,15 +38,14 @@
     <div class="modal-content">
       <h3>Audio Settings</h3>
       <div class="volume-group">
-        <label>Background Music</label>
+        <label>Music</label>
         <input type="range" id="bg-music-slider" min="0" max="1" step="0.1" value="0.5">
         <label>SFX</label>
         <input type="range" id="sfx-slider" min="0" max="1" step="0.1" value="0.5">
-        <label>Master Volume</label>
+        <label>Master</label>
         <input type="range" id="master-slider" min="0" max="1" step="0.1" value="0.5">
       </div>
       <button id="mute-btn" class="btn-orange" onclick="toggleMute()">Mute All: OFF</button>
-      <br>
       <button class="btn-close" onclick="toggleAudioModal()">Close</button>
     </div>
   </div>
