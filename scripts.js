@@ -10,8 +10,8 @@ const sfx = {
     mismatch: document.getElementById('sound-mismatch')
 };
 
-// Capped at 56 to prevent 404 error
-const totalPool = 56; 
+// Updated pool to include 57.png
+const totalPool = 57; 
 const pairsCount = 8; 
 let firstCard, secondCard, hasFlipped, lockBoard, matches, moves = 0;
 let audioState = { bg: 0.5, sfx: 0.5, muted: false };
@@ -34,6 +34,7 @@ function initGame() {
     
     let images = [];
     for (let i = 1; i <= totalPool; i++) {
+        // Skips missing or unwanted files
         if (i === 3 || i === 30 || i === 40) continue; 
         images.push(`${i}.png`);
     }
