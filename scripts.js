@@ -53,8 +53,8 @@ function initGame() {
 }
 
 function flipCard() {
-    // Prevent clicking locked board, the same card, or an already flipped/matched card
-    if (lockBoard || this === firstCard || this.classList.contains('flip')) return;
+    // Ultimate Guard: Block if locked, if same card, if already flipped, OR if matched
+    if (lockBoard || this === firstCard || this.classList.contains('flip') || this.classList.contains('matched')) return;
     
     if (bgMusic.paused) bgMusic.play().catch(()=>{});
     
@@ -78,21 +78,23 @@ function checkMatch() {
         matches++;
         if (sfx.match) { sfx.match.currentTime = 0; sfx.match.play(); }
         
-        // Remove event listeners so matched cards become permanently unclickable
+        // Add the matched class to trigger CSS pointer-events: none
+        firstCard.classList.add('matched');
+        secondCard.classList.add('matched');
+        
+        // Redundancy: Also remove event listeners
         firstCard.removeEventListener('click', flipCard);
         secondCard.removeEventListener('click', flipCard);
         
         if (matches === pairsCount) handleWin();
         resetTurn();
     } else {
-        lockBoard = true; // Lock the board while shaking
+        lockBoard = true; 
         if (sfx.mismatch) { sfx.mismatch.currentTime = 0; sfx.mismatch.play(); }
         
-        // Add the shake animation class
         firstCard.classList.add('shake');
         secondCard.classList.add('shake');
         
-        // Wait 1 second before removing shake/flip and unlocking the board
         setTimeout(() => {
             firstCard.classList.remove('shake', 'flip');
             secondCard.classList.remove('shake', 'flip');
